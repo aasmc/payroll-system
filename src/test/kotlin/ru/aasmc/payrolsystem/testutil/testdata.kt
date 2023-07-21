@@ -13,9 +13,11 @@ fun getSalesReceiptDto(employeeId: Long, amount: BigDecimal = BigDecimal.TEN): S
     )
 }
 
-fun getTimeCardDto(employeeId: Long, hours: Int): TimeCardRequest {
+fun getTimeCardDto(employeeId: Long,
+                   hours: Int,
+                   date: LocalDate = LocalDate.of(2023, Month.JULY, 21)): TimeCardRequest {
     return TimeCardRequest(
-            date = LocalDate.of(2023, Month.JULY, 21),
+            date = date,
             hours = hours,
             employeeId = employeeId
     )
@@ -27,9 +29,11 @@ fun getUnionAffiliationDto(): UnionAffiliationDto {
     )
 }
 
-fun getServiceChargeDto(employeeId: Long, affiliationId: Long): ServiceChargeRequest {
+fun getServiceChargeDto(employeeId: Long,
+                        affiliationId: Long,
+                        date: LocalDate = LocalDate.of(2023, Month.JULY, 21)): ServiceChargeRequest {
     return ServiceChargeRequest(
-            date = LocalDate.of(2023, Month.JULY, 21),
+            date = date,
             amount = BigDecimal.ONE,
             employeeId = employeeId,
             affiliationId = affiliationId
