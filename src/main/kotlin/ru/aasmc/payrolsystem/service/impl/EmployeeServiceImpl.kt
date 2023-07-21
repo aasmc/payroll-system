@@ -112,8 +112,10 @@ class EmployeeServiceImpl(
         )
     }
 
-    private fun <T : BaseEmployeeRequest> createAndSaveEmployee(mapper: EmployeeMapper<T>,
-                                                                dto: T): EmployeeResponse {
+    private fun <T : BaseEmployeeRequest> createAndSaveEmployee(
+            mapper: EmployeeMapper<T>,
+            dto: T
+    ): EmployeeResponse {
         val domain = mapper.mapToDomain(dto)
         val saved = employeeRepository.save(domain)
         return mapper.mapToDto(saved)

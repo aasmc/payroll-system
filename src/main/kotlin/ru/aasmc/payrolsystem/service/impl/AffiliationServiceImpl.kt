@@ -53,7 +53,6 @@ class AffiliationServiceImpl(
     )
 
     private fun mapToDomain(dto: UnionAffiliationDto): UnionAffiliation {
-        val employees = employeeRepository.findAllByIdIn(dto.memberIds)
         return UnionAffiliation(
                 dues = dto.dues
         )

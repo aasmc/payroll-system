@@ -13,4 +13,18 @@ class TimeCard(
         var id: Long? = null,
         var date: LocalDate,
         var hours: Int
-)
+) {
+        override fun equals(other: Any?): Boolean {
+                if (this === other) return true
+                val o = other as? TimeCard ?: return false
+                return id != null && id == o.id
+        }
+
+        override fun hashCode(): Int {
+                return javaClass.hashCode()
+        }
+
+        override fun toString(): String {
+                return "TimeCard(id=$id, data=$date, hours=$hours)"
+        }
+}
